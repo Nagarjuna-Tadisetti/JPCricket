@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chinni.jpcricket.MatchSummary">
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#9999ff"
+        android:textSize="16sp"
+        android:text="Summary"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="30dip"
+        android:paddingLeft="20dip"
+        android:textColor="#4d4d4d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</android.support.constraint.ConstraintLayout>
