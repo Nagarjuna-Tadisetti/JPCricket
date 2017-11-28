@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#9999ff"
+        android:textSize="16sp"
+        android:text="Player Details"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#4d4d4d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/Majorteams"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#9999ff"
+        android:textSize="16sp"
+        android:text="Major teams"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/Major_teams"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#4d4d4d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/playing_role"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#9999ff"
+        android:textSize="16sp"
+        android:text="Playing role"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/role"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#4d4d4d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/Batting_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#9999ff"
+        android:textSize="16sp"
+        android:text="Batting style"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/batting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#4d4d4d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/Bowling_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#9999ff"
+        android:textSize="16sp"
+        android:text="Bowling style"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/bowling"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dip"
+        android:paddingTop="10dip"
+        android:paddingLeft="20dip"
+        android:textColor="#4d4d4d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

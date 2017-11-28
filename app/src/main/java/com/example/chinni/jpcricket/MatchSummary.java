@@ -30,12 +30,11 @@ public class MatchSummary extends AppCompatActivity {
         Intent i = getIntent();
         String unique_id = i.getStringExtra("unique_id");
         summary_url = url+"&unique_id="+unique_id;
-        // globally
-        TextView tv = (TextView)findViewById(R.id.textView);
 
         new GetContacts().execute();
         String msg = summary_hp.get("score");
-        Log.e(TAG, "msg"+msg);
+
+        TextView tv = (TextView)findViewById(R.id.summaryText);
         tv.setText(msg);
     }
 
@@ -106,7 +105,7 @@ public class MatchSummary extends AppCompatActivity {
             /**
              * Updating parsed JSON data into ListView
              * */
-            TextView tv = (TextView)findViewById(R.id.textView);
+            TextView tv = (TextView)findViewById(R.id.summaryText);
             String msg = summary_hp.get("score");
             Log.e(TAG, "msg"+msg);
             tv.setText(msg.replace("amp;", ""));
