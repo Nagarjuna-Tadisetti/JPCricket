@@ -22,7 +22,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CricketMenu" />
         <activity android:name=".PlayersList" />
-        <activity android:name=".PlayerDetails"></activity>
+        <activity android:name=".PlayerDetails" />
+        <activity android:name=".News"></activity>
     </application>
 
 </manifest>

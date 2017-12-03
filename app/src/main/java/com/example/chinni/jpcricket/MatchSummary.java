@@ -1,8 +1,11 @@
 package com.example.chinni.jpcricket;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -109,6 +112,44 @@ public class MatchSummary extends AppCompatActivity {
             String msg = summary_hp.get("score");
             Log.e(TAG, "msg"+msg);
             tv.setText(msg.replace("amp;", ""));
+
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MatchSummary.this);
+
+            // Setting Dialog Title
+            alertDialog.setTitle("Like JPCricket app?");
+
+            // Setting Dialog Message
+            alertDialog.setMessage("Please give rating to our app...");
+
+            // Setting Icon to Dialog
+            //alertDialog.setIcon(R.drawable.save);
+
+            // Setting Positive "Yes" Button
+            alertDialog.setPositiveButton("RATE", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.july.cricinfo")));
+                }
+            });
+
+            // Setting Negative "NO" Button
+            alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // User pressed No button. Write Logic Here
+                    Toast.makeText(getApplicationContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            // Setting Netural "Cancel" Button
+            alertDialog.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // User pressed Cancel button. Write Logic Here
+                    Toast.makeText(getApplicationContext(), "You clicked on Cancel",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            // Showing Alert Message
+            alertDialog.show();
         }
 
     }

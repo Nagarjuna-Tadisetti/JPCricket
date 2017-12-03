@@ -23,4 +23,13 @@ android:padding="10dip">
     android:clickable="true"
     android:onClick="button2Click"/>
 
+    <ImageButton
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:src="@drawable/newlogo"
+        android:scaleType="fitCenter"
+        android:clickable="true"
+        android:onClick="button3Click"/>
+
 </LinearLayout>

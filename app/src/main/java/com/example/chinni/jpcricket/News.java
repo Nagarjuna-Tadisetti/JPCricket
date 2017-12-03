@@ -3,6 +3,7 @@ package com.example.chinni.jpcricket;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class News extends AppCompatActivity {
 
     private String TAG = MainActivity.class.getSimpleName();
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView lv;
 
     // URL to get contacts JSON
-    private static String url = "http://cricapi.com/api/matches?apikey=0E6GCx2OlMUHZ8vaMzCKs9yXHBw2";
+    private static String url = "https://newsapi.org/v2/top-headlines?sources=espn-cric-info&apiKey=b4fbc381c9ee43c495202b5d6ed4c14e";
 
     ArrayList<HashMap<String, String>> contactList;
 
@@ -48,10 +49,9 @@ public class MainActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?>adapter, View v, int position, long a){
-                Intent intent = new Intent(MainActivity.this,MatchSummary.class);
                 String unique_id = ((TextView) v.findViewById(R.id.unique_id)).getText().toString();
-                intent.putExtra("unique_id", unique_id);
-                startActivity(intent);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(unique_id));
+                startActivity(browserIntent);
             }
         });
     }
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(MainActivity.this);
+            pDialog = new ProgressDialog(News.this);
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -86,25 +86,25 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
                     // Getting JSON Array node
-                    JSONArray matches = jsonObj.getJSONArray("matches");
+                    JSONArray article = jsonObj.getJSONArray("articles");
 
                     // looping through All Contacts
-                    for (int i = 0; i < matches.length(); i++) {
-                        JSONObject c = matches.getJSONObject(i);
+                    for (int i = 0; i < article.length(); i++) {
+                        JSONObject c = article.getJSONObject(i);
 
-                        String id = c.getString("unique_id");
-                        String team2 = c.getString("team-2");
-                        String team1 = c.getString("team-1");
-                        String type = c.getString("type");
+                        String description = c.getString("description");
+                        String title = c.getString("title");
+                        String url = c.getString("url");
+                        String urlToImage = c.getString("urlToImage");
 
                         // tmp hash map for single contact
                         HashMap<String, String> contact = new HashMap<>();
 
                         // adding each child node to HashMap key => value
-                        contact.put("id", id);
-                        contact.put("team2", team2+" vs");
-                        contact.put("team1", team1);
-                        contact.put("type", type);
+                        contact.put("description", description);
+                        contact.put("title", title);
+                        contact.put("url", url);
+                        contact.put("urlToImage", urlToImage);
 
                         // adding contact to contact list
                         contactList.add(contact);
@@ -149,9 +149,9 @@ public class MainActivity extends AppCompatActivity {
              * Updating parsed JSON data into ListView
              * */
             ListAdapter adapter = new SimpleAdapter(
-                    MainActivity.this, contactList,
-                    R.layout.list_item, new String[]{"team2", "team1",
-                    "type","id"}, new int[]{R.id.name,
+                    News.this, contactList,
+                    R.layout.list_item, new String[]{"url", "title",
+                    "description","url"}, new int[]{R.id.title,
                     R.id.title, R.id.desc,R.id.unique_id});
 
             lv.setAdapter(adapter);

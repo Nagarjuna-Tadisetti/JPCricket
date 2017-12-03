@@ -22,4 +22,8 @@ public class CricketMenu extends AppCompatActivity {
         Intent intent = new Intent(CricketMenu.this,PlayersList.class);
         startActivity(intent);
     }
+    public void button3Click(View view){
+        Intent intent = new Intent(CricketMenu.this,News.class);
+        startActivity(intent);
+    }
 }
